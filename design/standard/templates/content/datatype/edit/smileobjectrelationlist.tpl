@@ -30,7 +30,7 @@
         <div class="buttonblock">
             <input type="hidden" name="single_select_{$attribute.id}" value="1" />
             {if ne( count( $nodesList ), 0)}
-            <select name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]">
+            <select name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[]">
                 {if $attribute.contentclass_attribute.is_required|not}
                     <option value="no_relation" {if eq( $attribute.content.relation_list|count, 0 )} selected="selected"{/if}>{'No relation'|i18n( 'design/standard/content/datatype' )}</option>
                 {/if}
@@ -55,10 +55,10 @@
         {case match=2} {* radio buttons list *}
             <input type="hidden" name="single_select_{$attribute.id}" value="1" />
             {if $attribute.contentclass_attribute.is_required|not}
-                <input type="radio" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="no_relation"
+                <input type="radio" name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[]" value="no_relation"
                 {if eq( $attribute.content.relation_list|count, 0 )} checked="checked"{/if}>{'No relation'|i18n( 'design/standard/content/datatype' )}<br />{/if}
             {section var=node loop=$nodesList}
-                <input type="radio" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="{$node.contentobject_id}"
+                <input type="radio" name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[]" value="{$node.contentobject_id}"
                 {if ne( count( $attribute.content.relation_list ), 0)}
                 {foreach $attribute.content.relation_list as $item}
                      {if eq( $item.contentobject_id, $node.contentobject_id )}
@@ -74,7 +74,7 @@
 
         {case match=3} {* check boxes list *}
             {section var=node loop=$nodesList}
-                <input type="checkbox" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[{$node.node_id}]" value="{$node.contentobject_id}"
+                <input type="checkbox" name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[{$node.node_id}]" value="{$node.contentobject_id}"
                 {if ne( count( $attribute.content.relation_list ), 0)}
                 {foreach $attribute.content.relation_list as $item}
                      {if eq( $item.contentobject_id, $node.contentobject_id )}
@@ -91,7 +91,7 @@
         {case match=4} {* Multiple List *}
             <div class="buttonblock">
             {if ne( count( $nodesList ), 0)}
-            <select name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" size="10" multiple>
+            <select name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[]" size="10" multiple>
                 {section var=node loop=$nodesList}
                     <option value="{$node.contentobject_id}"
                     {if ne( count( $attribute.content.relation_list ), 0)}
@@ -116,7 +116,7 @@
                 <ul>
                 {section var=node loop=$nodesList}
                    <li>
-                        <input type="checkbox" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[{$node.node_id}]" value="{$node.contentobject_id}"
+                        <input type="checkbox" name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[{$node.node_id}]" value="{$node.contentobject_id}"
                         {if ne( count( $attribute.content.relation_list ), 0)}
                         {foreach $attribute.content.relation_list as $item}
                            {if eq( $item.contentobject_id, $node.contentobject_id )}
@@ -140,12 +140,12 @@
             <ul>
                 {if $attribute.contentclass_attribute.is_required|not}
             <li>
-                         <input value="no_relation" type="radio" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" {if eq( $attribute.content.relation_list|count, 0 )} checked="checked"{/if}>{'No relation'|i18n( 'design/standard/content/datatype' )}<br />
+                         <input value="no_relation" type="radio" name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[]" {if eq( $attribute.content.relation_list|count, 0 )} checked="checked"{/if}>{'No relation'|i18n( 'design/standard/content/datatype' )}<br />
                     </li>
                 {/if}
                 {section var=node loop=$nodesList}
                     <li>
-                        <input type="radio" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="{$node.contentobject_id}"
+                        <input type="radio" name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[]" value="{$node.contentobject_id}"
                         {if ne( count( $attribute.content.relation_list ), 0)}
                         {foreach $attribute.content.relation_list as $item}
                            {if eq( $item.contentobject_id, $node.contentobject_id )}
@@ -349,7 +349,7 @@
               <tr class="{$style}">
                 {* Remove. *}
                 <td><input type="checkbox" name="{$attribute_base}_selection[{$attribute.id}][]" value="{$item.contentobject_id}" />
-                <input type="hidden" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="{$item.contentobject_id}" /></td>
+                <input type="hidden" name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[]" value="{$item.contentobject_id}" /></td>
 
                 {* Name *}
                 <td>{$object.name|wash()}</td>
@@ -377,7 +377,7 @@
         {else}
           <tr class="bgdark">
             <td><input type="checkbox" name="{$attribute_base}_selection[{$attribute.id}][]" value="--id--" />
-            <input type="hidden" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="no_relation" /></td>
+            <input type="hidden" name="{$attribute_base}_data_smile_object_relation_list_{$attribute.id}[]" value="no_relation" /></td>
             <td>--name--</td>
             <td>--class-name--</td>
             <td>--section-name--</td>
